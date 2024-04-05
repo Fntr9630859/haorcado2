@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="haorcadomaui.MainPage">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+        Padding="20,3"
+        Spacing="20">
+
+            <!-- Puntaje y Tiempo -->
+            <StackLayout
+            Margin="3,3"
+            Orientation="Horizontal"
+            Spacing="50">
+
+                <Label
+                x:Name="puntaje"
+                Text="Puntaje = 0"
+                FontSize="15"
+                BackgroundColor="White"/>
+
+                <Label
+                x:Name="tiempo"
+                Text="Tiempo = 30"
+                FontSize="15"
+                BackgroundColor="White"/>
+
+            </StackLayout>
+
+            <!-- Imagen -->
+            <StackLayout
+            Orientation="Horizontal"
+            Spacing="6"
+            HorizontalOptions="CenterAndExpand">
+
+                <Image
+                x:Name="personaje"
+                Source="escenario.png"/>
+
+            </StackLayout>
+
+            <!-- Datos con Entry -->
+            <StackLayout
+            Orientation="Horizontal"
+            Spacing="6"
+            HorizontalOptions="CenterAndExpand">
+
+                <Label
+                x:Name="numero1"
+                Text="00"
+                FontSize="20"
+                Margin="5,5"
+                BackgroundColor="White"/>
+
+                <Label
+                Text="x"
+                FontSize="17"
+                Margin="5,5"
+                BackgroundColor="White"/>
+
+                <Label
+                x:Name="numero3"
+                Text="00"
+                FontSize="20"
+                Margin="5,5"
+                BackgroundColor="White"/>
+
+                <Label
+                Text="="
+                FontSize="19"
+                Margin="5,5"
+                BackgroundColor="White"/>
+
+                <!--Completed="Probar_Click"-->
+                <Entry
+                Keyboard="Numeric"
+                x:Name="respuestau"
+                Placeholder="respuesta"
+                MaxLength="3"
+                WidthRequest="90"
+                IsEnabled="False"
+                BackgroundColor="White"/>
+
+            </StackLayout>
+
+            <!-- Botones -->
+            <StackLayout
+            Orientation="Horizontal"
+            Spacing="6"
+            HorizontalOptions="CenterAndExpand">
+
+
+                <!--Clicked="StartGame_Click"-->
+                <Button
+                x:Name="Continuar"
+                VerticalOptions="Center"
+                Text="Iniciar"
+                IsEnabled="True"
+                FontSize="15" />
+
+
+                <!--Clicked="SelectDif"-->
+                <Button
+                x:Name="cambiodificultad"
+                VerticalOptions="Center"
+                Text="Dificultad=Normal"
+                IsEnabled="True"
+                FontSize="15" />
+
+            </StackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
