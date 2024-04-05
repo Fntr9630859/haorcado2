@@ -8,8 +8,6 @@
         <VerticalStackLayout
         Padding="20,3"
         Spacing="20">
-
-            <!-- Puntaje y Tiempo -->
             <StackLayout
             Margin="3,3"
             Orientation="Horizontal"
@@ -22,14 +20,13 @@
                 BackgroundColor="White"/>
 
                 <Label
-                x:Name="tiempo"
-                Text="Tiempo = 30"
+                x:Name="tiempol"
+                Text="Tiempo = 40"
                 FontSize="15"
                 BackgroundColor="White"/>
 
             </StackLayout>
 
-            <!-- Imagen -->
             <StackLayout
             Orientation="Horizontal"
             Spacing="6"
@@ -41,7 +38,6 @@
 
             </StackLayout>
 
-            <!-- Datos con Entry -->
             <StackLayout
             Orientation="Horizontal"
             Spacing="6"
@@ -61,7 +57,7 @@
                 BackgroundColor="White"/>
 
                 <Label
-                x:Name="numero3"
+                x:Name="numero2"
                 Text="00"
                 FontSize="20"
                 Margin="5,5"
@@ -73,39 +69,38 @@
                 Margin="5,5"
                 BackgroundColor="White"/>
 
-                <!--Completed="Probar_Click"-->
                 <Entry
                 Keyboard="Numeric"
                 x:Name="respuestau"
                 Placeholder="respuesta"
                 MaxLength="3"
+                Completed ="Comprobarc"
                 WidthRequest="90"
                 IsEnabled="False"
                 BackgroundColor="White"/>
 
             </StackLayout>
 
-            <!-- Botones -->
             <StackLayout
             Orientation="Horizontal"
             Spacing="6"
             HorizontalOptions="CenterAndExpand">
 
 
-                <!--Clicked="StartGame_Click"-->
                 <Button
                 x:Name="Continuar"
                 VerticalOptions="Center"
                 Text="Iniciar"
+                Clicked="Iniciar_juego"
                 IsEnabled="True"
                 FontSize="15" />
 
 
-                <!--Clicked="SelectDif"-->
                 <Button
                 x:Name="cambiodificultad"
                 VerticalOptions="Center"
-                Text="Dificultad=Normal"
+                Text="Dificultad:Normal"
+                Clicked="cambiardi"
                 IsEnabled="True"
                 FontSize="15" />
 
