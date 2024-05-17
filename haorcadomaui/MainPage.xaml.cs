@@ -6,6 +6,8 @@
         public MainPage()
         {
             InitializeComponent();
+
+            record.Text= "Record = " + data.Datos.record.ToString();
         }
 
         int num1 = 0;
@@ -17,6 +19,7 @@
         int punt = 0;
         int dificultad = 1;
         bool continua = false;
+        int enperd = 0;
 
         private async void Iniciar_juego(object sender, EventArgs e)
         {
@@ -31,6 +34,7 @@
             }
             Continuar.IsEnabled = false;
             cambiodificultad.IsEnabled = false;
+            cambiopersonaje.IsEnabled = false;
             verificardif();
             numero1.Text = num1.ToString();
             numero2.Text = num2.ToString();
@@ -63,7 +67,8 @@
             res = num1 * num2;
             if (punt != 0)
             {
-
+                if (enperd == 0)
+                {
                 if (dificultad == 0 && reftiempo > 2)
                 {
                     if (punt % 5 == 0)
@@ -71,20 +76,23 @@
                         reftiempo -= 5;
                     }
                 }
-                else if (dificultad == 1 && reftiempo > 22)
+                else if (dificultad == 1 && reftiempo > 32)
                 {
                     if (punt % 5 == 0)
                     {
                         reftiempo -= 5;
                     }
                 }
-                else if (dificultad == 2 && reftiempo > 42)
+                else if (dificultad == 2 && reftiempo > 32)
                 {
                     if (punt % 5 == 0)
                     {
                         reftiempo -= 5;
                     }
                 }
+
+                }
+
             }
             else
             {
@@ -92,17 +100,17 @@
                 {
                     reftiempo = 60;
 
-                }else if (dificultad == 1)
+                } else if (dificultad == 1)
                 {
                     reftiempo = 40;
 
-                }else if (dificultad == 2)
+                } else if (dificultad == 2)
                 {
                     reftiempo = 20;
 
                 }
             }
-            tiempo = reftiempo;
+            tiempo = reftiempo + 1;
         }
 
         public void Comprobarc(object sender, EventArgs e)
@@ -116,6 +124,7 @@
             {
                 if (resu == res)
                 {
+                    enperd = 0;
                     DisplayAlert("Ganaste", " ", "OK");
                     Continuar.IsEnabled = true;
                     respuestau.IsEnabled = false;
@@ -132,6 +141,7 @@
 
         private void perder()
         {
+            enperd = 1;
             DisplayAlert("Perdiste", " La respuesta correcta es " + res, "OK");
             perd++;
             Continuar.IsEnabled = true ;
@@ -139,33 +149,41 @@
             continua = false ;
             if (perd == 1)
             {
-                personaje.Source = "claudia0.png";
+                personaje.Source = data.Datos.seleccionju.ToString() + "_ca.png";
 
             }else if (perd == 2)
             {
-                personaje.Source = "claudia1.png";
+                personaje.Source = data.Datos.seleccionju.ToString() + "_cu.png";
 
             }
             else if (perd == 3)
             {
-                personaje.Source = "claudia2.png";
+                personaje.Source = data.Datos.seleccionju.ToString() + "_nb.png";
 
             }
             else if (perd == 4)
             {
-                personaje.Source = "claudia3.png";
+                personaje.Source = data.Datos.seleccionju.ToString() + "_np.png";
 
             }
             else if (perd == 5)
             {
-                personaje.Source = "claudia4.png";
+                personaje.Source = data.Datos.seleccionju.ToString() + "_pie.png";
 
             }
             else if (perd == 6)
-            {
-                personaje.Source = "claudia5.png";
+            {   
+                if (data.Datos.record < punt)
+                {
+
+                    data.Datos.record = punt;
+
+                }
+                record.Text = "Record = " + data.Datos.record.ToString();
+                personaje.Source = data.Datos.seleccionju.ToString() + "_com.png";
                 Continuar.IsEnabled= true;
                 cambiodificultad.IsEnabled= true ;
+                cambiopersonaje.IsEnabled = true;
                 Continuar.Text = "Reiniciar";
 
             }
@@ -187,6 +205,11 @@
                 dificultad = 0;
                 cambiodificultad.Text = "Dificultad:Facil";
             }
+        }
+
+        public async void cambiarper(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Personajes());
         }
 
 

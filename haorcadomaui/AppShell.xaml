@@ -5,10 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:haorcadomaui"
     Shell.FlyoutBehavior="Disabled"
+    BackgroundColor="#212121"
     Title="haorcadomaui">
 
     <ShellContent
-        Title="Home"
+        Title="haorcado"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
